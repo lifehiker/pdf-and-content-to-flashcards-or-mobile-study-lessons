@@ -1,0 +1,765 @@
+:root {
+  --ink: #17140f;
+  --muted: #655e52;
+  --paper: #f4efe3;
+  --paper-deep: #ded3bd;
+  --line: #211d17;
+  --green: #14483a;
+  --green-soft: #c8deba;
+  --acid: #d7ff35;
+  --clay: #b75b34;
+  --blue: #274b72;
+  --white: #fffaf0;
+  --shadow: 8px 8px 0 #17140f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(215, 255, 53, 0.22), transparent 26rem),
+    linear-gradient(rgba(23, 20, 15, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 20, 15, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: auto, 34px 34px, 34px 34px, auto;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.topbar {
+  align-items: center;
+  background: rgba(255, 250, 240, 0.84);
+  border: 2px solid var(--line);
+  box-shadow: 4px 4px 0 var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto 1fr auto;
+  margin: 0 auto 24px;
+  max-width: 1220px;
+  padding: 10px;
+  position: sticky;
+  top: 12px;
+  z-index: 10;
+}
+
+.brand-mark,
+.nav-links a {
+  text-decoration: none;
+}
+
+.brand-mark {
+  align-items: center;
+  display: inline-flex;
+  font-size: 1.25rem;
+  font-weight: 900;
+  gap: 8px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.brand-glyph {
+  align-items: center;
+  background: var(--acid);
+  border: 2px solid var(--line);
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.nav-links a,
+.ghost-button,
+.secondary-action,
+.primary-action,
+.deck-controls button,
+.editor-actions button,
+.lesson-actions button,
+.grade-row button,
+.price-card button {
+  border: 2px solid var(--line);
+  min-height: 40px;
+  padding: 9px 13px;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.nav-links a,
+.ghost-button,
+.secondary-action,
+.deck-controls button,
+.editor-actions button,
+.lesson-actions button,
+.grade-row button,
+.price-card button {
+  background: var(--white);
+}
+
+.primary-action {
+  background: var(--ink);
+  color: var(--white);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+}
+
+.primary-action:hover,
+.secondary-action:hover,
+.ghost-button:hover,
+.nav-links a:hover,
+.deck-controls button:hover,
+.editor-actions button:hover,
+.lesson-actions button:hover,
+.grade-row button:hover,
+.price-card button:hover {
+  box-shadow: 4px 4px 0 var(--line);
+  transform: translate(-2px, -2px);
+}
+
+.product-hero,
+.seo-hero {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  margin: 0 auto 28px;
+  max-width: 1220px;
+}
+
+.hero-panel,
+.seo-hero > div,
+.source-sheet {
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel,
+.seo-hero > div {
+  background: var(--green);
+  color: var(--white);
+  min-height: 430px;
+  padding: clamp(24px, 5vw, 58px);
+  position: relative;
+}
+
+.hero-panel::after,
+.seo-hero > div::after {
+  background:
+    linear-gradient(135deg, transparent 46%, rgba(215, 255, 53, 0.92) 46% 54%, transparent 54%),
+    linear-gradient(45deg, transparent 46%, rgba(255, 250, 240, 0.28) 46% 54%, transparent 54%);
+  bottom: 24px;
+  content: "";
+  height: 92px;
+  position: absolute;
+  right: 24px;
+  width: 160px;
+}
+
+.eyebrow {
+  color: var(--clay);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.hero-panel .eyebrow,
+.seo-hero .eyebrow {
+  color: var(--acid);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.55rem, 6vw, 5.8rem);
+  line-height: 0.91;
+  margin-bottom: 22px;
+  max-width: 920px;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 3.2rem);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.hero-copy {
+  color: rgba(255, 250, 240, 0.86);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.45;
+  max-width: 660px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.deck-stack {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 240, 0.94), rgba(222, 211, 189, 0.86)),
+    repeating-linear-gradient(0deg, transparent 0 28px, rgba(23, 20, 15, 0.13) 29px 30px);
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow);
+  min-height: 430px;
+  overflow: hidden;
+  position: relative;
+}
+
+.floating-card {
+  background: var(--white);
+  border: 2px solid var(--line);
+  box-shadow: 6px 6px 0 var(--line);
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-weight: 800;
+  max-width: 310px;
+  padding: 22px;
+  position: absolute;
+}
+
+.floating-card.one {
+  left: 9%;
+  top: 13%;
+  transform: rotate(-7deg);
+}
+
+.floating-card.two {
+  background: var(--acid);
+  right: 8%;
+  top: 37%;
+  transform: rotate(5deg);
+}
+
+.floating-card.three {
+  background: var(--clay);
+  bottom: 12%;
+  color: var(--white);
+  left: 18%;
+  transform: rotate(-2deg);
+}
+
+.workspace {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 320px minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 1220px;
+}
+
+.deck-rail,
+.studio-panel,
+.source-sheet,
+.proof-cell,
+.essay-band {
+  background: rgba(255, 250, 240, 0.88);
+  border: 2px solid var(--line);
+  box-shadow: 5px 5px 0 var(--line);
+}
+
+.deck-rail,
+.studio-panel {
+  padding: 18px;
+}
+
+.rail-header,
+.panel-heading,
+.lesson-actions,
+.grade-row,
+.deck-controls {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.limit-pill {
+  background: var(--green-soft);
+  border: 2px solid var(--line);
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 7px 9px;
+}
+
+.deck-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.deck-row {
+  background: var(--white);
+  border: 2px solid var(--line);
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  text-align: left;
+}
+
+.deck-row.active {
+  background: var(--acid);
+}
+
+.deck-row small {
+  color: var(--muted);
+}
+
+.source-dot {
+  background: var(--ink);
+  color: var(--white);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  padding: 4px 7px;
+  width: fit-content;
+}
+
+.deck-controls {
+  justify-content: stretch;
+}
+
+.deck-controls button {
+  flex: 1;
+}
+
+.studio {
+  min-width: 0;
+}
+
+.tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tab-row button,
+.segmented button {
+  background: var(--paper-deep);
+  border: 2px solid var(--line);
+  min-height: 40px;
+  padding: 9px 14px;
+  text-transform: capitalize;
+}
+
+.tab-row .selected,
+.segmented .selected {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.import-grid,
+.billing-panel {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+
+.field-label {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin: 14px 0 8px;
+  text-transform: uppercase;
+}
+
+input,
+textarea {
+  background: var(--white);
+  border: 2px solid var(--line);
+  color: var(--ink);
+  display: block;
+  min-height: 44px;
+  padding: 11px;
+  width: 100%;
+}
+
+textarea {
+  line-height: 1.45;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.process-card,
+.price-card {
+  background: var(--green);
+  border: 2px solid var(--line);
+  color: var(--white);
+  padding: 18px;
+}
+
+.process-step {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.process-step span {
+  background: var(--white);
+  border: 2px solid var(--line);
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+}
+
+.process-step.active span {
+  background: var(--acid);
+}
+
+.usage-box {
+  background: rgba(255, 250, 240, 0.12);
+  border: 2px solid rgba(255, 250, 240, 0.32);
+  margin-top: 24px;
+  padding: 14px;
+}
+
+.card-editor-list {
+  display: grid;
+  gap: 12px;
+}
+
+.editor-card {
+  align-items: start;
+  background: var(--white);
+  border: 2px solid var(--line);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 54px minmax(0, 1fr) minmax(0, 1fr) auto;
+  padding: 12px;
+}
+
+.card-number {
+  background: var(--acid);
+  border: 2px solid var(--line);
+  display: inline-grid;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 800;
+  min-height: 42px;
+  place-items: center;
+}
+
+.editor-card textarea {
+  min-height: 96px;
+}
+
+.editor-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.lesson-panel {
+  background: var(--blue);
+  color: var(--white);
+  min-height: 420px;
+}
+
+.lesson-panel p,
+.lesson-panel li {
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.lesson-panel li {
+  margin-bottom: 10px;
+}
+
+.lesson-actions {
+  border-top: 2px solid rgba(255, 250, 240, 0.35);
+  margin-top: 30px;
+  padding-top: 16px;
+}
+
+.review-card {
+  background: var(--acid);
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 18px;
+  margin: 24px auto;
+  max-width: 680px;
+  min-height: 300px;
+  padding: 34px;
+  place-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.review-card.flipped {
+  background: var(--white);
+}
+
+.review-card span,
+.mini-card span,
+.price-card span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.review-card strong {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.grade-row {
+  justify-content: center;
+}
+
+.grade-row button {
+  min-width: 120px;
+}
+
+.price-card {
+  display: grid;
+  gap: 10px;
+}
+
+.price-card strong {
+  color: var(--acid);
+  font-size: 4rem;
+  line-height: 0.95;
+}
+
+.price-card small {
+  color: rgba(255, 250, 240, 0.74);
+}
+
+.toast {
+  background: var(--ink);
+  border: 2px solid var(--acid);
+  bottom: 16px;
+  color: var(--white);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  left: 50%;
+  max-width: calc(100% - 32px);
+  opacity: 0;
+  padding: 10px 12px;
+  pointer-events: none;
+  position: fixed;
+  transform: translateX(-50%);
+  transition: opacity 220ms ease;
+  z-index: 20;
+}
+
+.toast.toast-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.seo-shell {
+  padding-bottom: 48px;
+}
+
+.app-shell {
+  max-width: 100%;
+}
+
+.source-sheet {
+  min-height: 430px;
+  padding: 22px;
+  position: relative;
+}
+
+.sheet-tag {
+  background: var(--clay);
+  border: 2px solid var(--line);
+  color: var(--white);
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding: 7px 10px;
+}
+
+.mini-card {
+  background: var(--white);
+  border: 2px solid var(--line);
+  box-shadow: 5px 5px 0 var(--line);
+  margin: 0 auto 18px;
+  max-width: 360px;
+  padding: 22px;
+}
+
+.mini-card.tilted {
+  transform: rotate(-3deg);
+}
+
+.mini-card strong {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  margin-top: 12px;
+}
+
+.queue-strip {
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  left: 22px;
+  position: absolute;
+  right: 22px;
+}
+
+.queue-strip span {
+  background: var(--green-soft);
+  border: 2px solid var(--line);
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.proof-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto 24px;
+  max-width: 1220px;
+}
+
+.proof-cell {
+  align-items: center;
+  display: flex;
+  font-weight: 800;
+  gap: 12px;
+  min-height: 88px;
+  padding: 16px;
+}
+
+.proof-cell span {
+  background: var(--acid);
+  border: 2px solid var(--line);
+  flex: 0 0 auto;
+  height: 18px;
+  transform: rotate(45deg);
+  width: 18px;
+}
+
+.essay-band {
+  margin: 0 auto;
+  max-width: 1220px;
+  padding: clamp(22px, 4vw, 46px);
+}
+
+.essay-band p {
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.6;
+  max-width: 840px;
+}
+
+@media (max-width: 920px) {
+  .topbar,
+  .product-hero,
+  .seo-hero,
+  .workspace,
+  .import-grid,
+  .billing-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    position: static;
+  }
+
+  .nav-links {
+    justify-content: start;
+  }
+
+  .editor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .site-shell {
+    padding: 10px;
+  }
+
+  .hero-panel,
+  .seo-hero > div,
+  .deck-stack,
+  .source-sheet {
+    min-height: 340px;
+  }
+
+  .deck-stack {
+    display: none;
+  }
+
+  .product-hero,
+  .seo-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rail-header,
+  .panel-heading,
+  .lesson-actions,
+  .grade-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .grade-row button {
+    width: 100%;
+  }
+}
