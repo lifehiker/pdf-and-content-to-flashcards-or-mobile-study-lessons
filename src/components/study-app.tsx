@@ -175,9 +175,11 @@ export default function StudyApp() {
   const activeLesson = activeDeck.lessons[Math.min(lessonIndex, activeDeck.lessons.length - 1)];
 
   function showToast(message: string) {
-    showToast(message);
+    setToast(message);
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
-    toastTimerRef.current = setTimeout(() => showToast(""), 3500);
+    if (message) {
+      toastTimerRef.current = setTimeout(() => setToast(""), 3500);
+    }
   }
 
   function updateDeck(deckId: string, updater: (deck: Deck) => Deck) {
